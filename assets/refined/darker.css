@@ -8,14 +8,7 @@ body {
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 46% 42% at 50% 46%, rgba(20, 16, 14, 0.2), transparent 70%),
-    linear-gradient(180deg, rgba(20, 16, 14, 0.72) 0%, rgba(20, 16, 14, 0.46) 42%, rgba(20, 16, 14, 0.34) 72%, rgba(20, 16, 14, 0.62) 100%);
+  display: none;
 }
 
 #root {
@@ -63,33 +56,32 @@ body::before {
 #root h2,
 #root h3,
 #root .font-serif {
-  color: #f3e5d8 !important;
+  color: #3a2b24 !important;
   text-shadow:
-    0 2px 14px rgba(0, 0, 0, 0.62),
-    0 0 26px rgba(243, 229, 216, 0.1) !important;
+    0 1px 0 rgba(243, 229, 216, 0.7),
+    0 8px 24px rgba(20, 16, 14, 0.2) !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) h1 {
-  color: #f3e5d8 !important;
+  color: #3a2b24 !important;
   text-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.12),
-    0 14px 36px rgba(0, 0, 0, 0.48),
-    0 0 42px rgba(243, 229, 216, 0.16) !important;
+    0 1px 0 rgba(243, 229, 216, 0.72),
+    0 12px 34px rgba(20, 16, 14, 0.22) !important;
 }
 
 #root p,
 #root label,
 #root span,
 #root button {
-  color: rgba(243, 229, 216, 0.9) !important;
+  color: rgba(58, 43, 36, 0.86) !important;
   border-color: rgba(226, 205, 187, 0.22) !important;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.52);
+  text-shadow: 0 1px 0 rgba(243, 229, 216, 0.62);
 }
 
 #root .text-brand-gold,
 #root .font-serif.italic,
 #root .hover\:text-brand-gold:hover {
-  color: #e2cdbb !important;
+  color: #6f5647 !important;
 }
 
 #root .bg-brand-gold,
@@ -123,7 +115,7 @@ body::before {
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3) > div > div:first-child {
   border-color: rgba(226, 205, 187, 0.18) !important;
   background:
-    linear-gradient(180deg, rgba(20, 16, 14, 0.58), rgba(58, 43, 36, 0.42)) !important;
+    linear-gradient(180deg, rgba(243, 229, 216, 0.26), rgba(226, 205, 187, 0.14)) !important;
   box-shadow:
     0 18px 52px rgba(0, 0, 0, 0.26),
     0 0 0 1px rgba(226, 205, 187, 0.08),
@@ -131,16 +123,16 @@ body::before {
 }
 
 #root form input {
-  color: #f3e5d8 !important;
+  color: #3a2b24 !important;
   border-color: rgba(226, 205, 187, 0.26) !important;
 }
 
 #root form input::placeholder {
-  color: rgba(226, 205, 187, 0.38) !important;
+  color: rgba(58, 43, 36, 0.42) !important;
 }
 
 #root footer {
-  color: rgba(226, 205, 187, 0.56) !important;
+  color: rgba(58, 43, 36, 0.62) !important;
 }
 
 ::-webkit-scrollbar-thumb {
