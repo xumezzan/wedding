@@ -56,32 +56,42 @@ body::before {
 #root h2,
 #root h3,
 #root .font-serif {
-  color: #3a2b24 !important;
+  color: #f8efe6 !important;
   text-shadow:
-    0 1px 0 rgba(243, 229, 216, 0.7),
-    0 8px 24px rgba(20, 16, 14, 0.2) !important;
+    -1px -1px 0 rgba(20, 16, 14, 0.74),
+    1px -1px 0 rgba(20, 16, 14, 0.74),
+    -1px 1px 0 rgba(20, 16, 14, 0.74),
+    1px 1px 0 rgba(20, 16, 14, 0.74),
+    0 8px 22px rgba(20, 16, 14, 0.28) !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) h1 {
-  color: #3a2b24 !important;
+  color: #f8efe6 !important;
   text-shadow:
-    0 1px 0 rgba(243, 229, 216, 0.72),
-    0 12px 34px rgba(20, 16, 14, 0.22) !important;
+    -1px -1px 0 rgba(20, 16, 14, 0.78),
+    1px -1px 0 rgba(20, 16, 14, 0.78),
+    -1px 1px 0 rgba(20, 16, 14, 0.78),
+    1px 1px 0 rgba(20, 16, 14, 0.78),
+    0 14px 32px rgba(20, 16, 14, 0.3) !important;
 }
 
 #root p,
 #root label,
 #root span,
 #root button {
-  color: rgba(58, 43, 36, 0.86) !important;
+  color: rgba(248, 239, 230, 0.92) !important;
   border-color: rgba(226, 205, 187, 0.22) !important;
-  text-shadow: 0 1px 0 rgba(243, 229, 216, 0.62);
+  text-shadow:
+    -1px -1px 0 rgba(20, 16, 14, 0.58),
+    1px -1px 0 rgba(20, 16, 14, 0.58),
+    -1px 1px 0 rgba(20, 16, 14, 0.58),
+    1px 1px 0 rgba(20, 16, 14, 0.58);
 }
 
 #root .text-brand-gold,
 #root .font-serif.italic,
 #root .hover\:text-brand-gold:hover {
-  color: #6f5647 !important;
+  color: #f3e5d8 !important;
 }
 
 #root .bg-brand-gold,
@@ -123,16 +133,22 @@ body::before {
 }
 
 #root form input {
-  color: #3a2b24 !important;
+  color: #f8efe6 !important;
   border-color: rgba(226, 205, 187, 0.26) !important;
+  text-shadow:
+    -1px -1px 0 rgba(20, 16, 14, 0.46),
+    1px 1px 0 rgba(20, 16, 14, 0.46);
 }
 
 #root form input::placeholder {
-  color: rgba(58, 43, 36, 0.42) !important;
+  color: rgba(248, 239, 230, 0.72) !important;
 }
 
 #root footer {
-  color: rgba(58, 43, 36, 0.62) !important;
+  color: rgba(248, 239, 230, 0.82) !important;
+  text-shadow:
+    -1px -1px 0 rgba(20, 16, 14, 0.5),
+    1px 1px 0 rgba(20, 16, 14, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
