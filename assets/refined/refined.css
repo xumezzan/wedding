@@ -63,7 +63,7 @@ body {
   background:
     radial-gradient(circle at 32% 27%, rgba(255, 255, 248, 0.22), transparent 17%),
     linear-gradient(135deg, rgba(255, 242, 214, 0.34), rgba(219, 183, 144, 0.08) 52%, rgba(37, 28, 26, 0.3)),
-    url("/assets/refined/moon-nearside-cutout.png") center / cover no-repeat !important;
+    url("moon-nearside-cutout.png") center / cover no-repeat !important;
   filter: sepia(0.18) saturate(0.9) brightness(1.2) contrast(0.98);
   box-shadow:
     0 0 34px rgba(255, 231, 199, 0.72),
@@ -125,11 +125,11 @@ body {
   z-index: 0;
   pointer-events: none;
   background-image:
-    url("/assets/refined/floral-glow-left.webp"),
-    url("/assets/refined/floral-glow-right.webp"),
-    url("/assets/refined/candles-glow.webp"),
-    url("/assets/refined/floral-glow-left.webp"),
-    url("/assets/refined/candles-glow.webp");
+    url("floral-glow-left.webp"),
+    url("floral-glow-right.webp"),
+    url("candles-glow.webp"),
+    url("floral-glow-left.webp"),
+    url("candles-glow.webp");
   background-repeat: no-repeat;
   background-size:
     min(35vw, 31rem) auto,
@@ -293,7 +293,7 @@ body {
   inset: auto 0 0 auto;
   width: min(42vw, 28rem);
   height: 72%;
-  background: url("/assets/refined/sakura-pagoda-optimized.jpg") center center / cover no-repeat;
+  background: url("sakura-pagoda-optimized.jpg") center center / cover no-repeat;
   opacity: 0.1;
   mix-blend-mode: multiply;
   -webkit-mask-image: radial-gradient(ellipse 88% 76% at 100% 54%, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.42) 42%, transparent 74%);
@@ -380,9 +380,9 @@ body {
 @media (max-width: 767px) {
   #root .relative.w-full.flex.flex-col.items-center::after {
     background-image:
-      url("/assets/refined/floral-glow-left.webp"),
-      url("/assets/refined/candles-glow.webp"),
-      url("/assets/refined/floral-glow-right.webp");
+      url("floral-glow-left.webp"),
+      url("candles-glow.webp"),
+      url("floral-glow-right.webp");
     background-size:
       68vw auto,
       36vw auto,
@@ -440,7 +440,7 @@ body {
       rgba(80, 52, 34, 0.11) 50%,
       rgba(166, 96, 58, 0.08) 82%,
       rgba(255, 236, 222, 0.03) 100%),
-    url("/assets/refined/hero-sakura-frame.png") center center / cover no-repeat !important;
+    url("hero-sakura-frame.png") center center / cover no-repeat !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) h1 {
@@ -466,7 +466,7 @@ body {
         rgba(80, 52, 34, 0.13) 50%,
         rgba(166, 96, 58, 0.1) 72%,
         rgba(255, 236, 222, 0.04) 100%),
-      url("/assets/refined/hero-sakura-frame.png") center center / cover no-repeat !important;
+      url("hero-sakura-frame.png") center center / cover no-repeat !important;
   }
 }
 
