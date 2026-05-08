@@ -1,0 +1,480 @@
+html {
+  background: #fff5e8;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 42% 100% at 0% 50%, rgba(34, 19, 8, 0.18) 0%, transparent 100%),
+    radial-gradient(ellipse 42% 100% at 100% 50%, rgba(34, 19, 8, 0.18) 0%, transparent 100%),
+    linear-gradient(180deg, #fff7ee 0%, #fff5e8 100%);
+  background-attachment: fixed !important;
+  background-color: #fff5e8 !important;
+}
+
+#root .relative.z-10.w-full.min-h-screen.pt-24.pb-32 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#root > .pointer-events-none.fixed.inset-0.z-0 {
+  display: none !important;
+}
+
+/* ── MOON OVERLAY — preserved exactly, only container gets floor uplight ── */
+
+#root .fixed.inset-0.z-50 {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(180, 110, 40, 0.12) 0%, transparent 28%),
+    radial-gradient(circle at 50% 38%, rgba(255, 229, 202, 0.1) 0%, transparent 28%),
+    #050506 !important;
+}
+
+#root .fixed.inset-0.z-50 > .absolute.inset-0 {
+  background: transparent !important;
+}
+
+#root .fixed.inset-0.z-50 > .absolute.bottom-0 {
+  display: none !important;
+}
+
+#root .fixed.inset-0.z-50::before,
+#root .fixed.inset-0.z-50::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+#root .fixed.inset-0.z-50::before {
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.32) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 19%, rgba(255, 255, 255, 0.26) 0 1px, transparent 2px),
+    radial-gradient(circle at 60% 72%, rgba(255, 246, 232, 0.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 35% 76%, rgba(255, 246, 232, 0.2) 0 1px, transparent 2px);
+  background-size: 13rem 15rem, 17rem 19rem, 19rem 21rem, 23rem 25rem;
+  opacity: 0.22;
+}
+
+#root .fixed.inset-0.z-50::after {
+  display: none;
+}
+
+#root .fixed.inset-0.z-50 .relative.group > .relative {
+  background:
+    radial-gradient(circle at 32% 27%, rgba(255, 255, 248, 0.22), transparent 17%),
+    linear-gradient(135deg, rgba(255, 242, 214, 0.34), rgba(219, 183, 144, 0.08) 52%, rgba(37, 28, 26, 0.3)),
+    url("/assets/refined/moon-nearside-cutout.png") center / cover no-repeat !important;
+  filter: sepia(0.18) saturate(0.9) brightness(1.2) contrast(0.98);
+  box-shadow:
+    0 0 34px rgba(255, 231, 199, 0.72),
+    0 0 116px rgba(255, 180, 175, 0.24),
+    inset -22px -24px 46px rgba(0, 0, 0, 0.24),
+    inset 10px 10px 26px rgba(255, 255, 255, 0.34) !important;
+}
+
+#root .fixed.inset-0.z-50 .relative.group > .relative > div {
+  opacity: 0 !important;
+}
+
+#root .fixed.inset-0.z-50 .relative.group::after {
+  display: none;
+}
+
+#root .fixed.inset-0.z-50 .absolute.bottom-20.text-center p:first-child {
+  color: rgba(255, 242, 229, 0.88) !important;
+  text-shadow: 0 0 18px rgba(255, 205, 188, 0.28);
+}
+
+#root .fixed.inset-0.z-50 .absolute.bottom-20.text-center p:last-child {
+  color: rgba(226, 169, 139, 0.84) !important;
+  text-shadow: 0 0 16px rgba(255, 196, 175, 0.22);
+}
+
+/* ── PAGE WRAPPER — единый фон на весь сайт ── */
+
+#root .relative.w-full.flex.flex-col.items-center {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 82% 22% at 50% 0%, rgba(222, 174, 105, 0.2), transparent 70%),
+    radial-gradient(ellipse 74% 24% at 50% 100%, rgba(214, 159, 88, 0.14), transparent 72%),
+    linear-gradient(180deg, #fff7ee 0%, #fff5e8 42%, #fff7ee 100%) !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 9px,
+      rgba(255, 244, 218, 0.026) 9px, rgba(255, 244, 218, 0.026) 10px),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 13px,
+      rgba(210, 154, 82, 0.018) 13px, rgba(210, 154, 82, 0.018) 14px);
+  opacity: 0.72;
+}
+
+#root .relative.w-full.flex.flex-col.items-center::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    url("/assets/refined/floral-glow-left.webp"),
+    url("/assets/refined/floral-glow-right.webp"),
+    url("/assets/refined/candles-glow.webp"),
+    url("/assets/refined/floral-glow-left.webp"),
+    url("/assets/refined/candles-glow.webp");
+  background-repeat: no-repeat;
+  background-size:
+    min(35vw, 31rem) auto,
+    min(33vw, 29rem) auto,
+    min(18vw, 13rem) auto,
+    min(28vw, 25rem) auto,
+    min(16vw, 12rem) auto;
+  background-position:
+    left -12rem top 48rem,
+    right -11rem top 50rem,
+    left 6vw top 64rem,
+    left -11rem bottom 24rem,
+    right 7vw bottom 7rem;
+  opacity: 0.7;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section {
+  position: relative;
+  z-index: 1;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Убираем разделительные полосы (border-y на внутренних div секций) */
+#root .relative.w-full.flex.flex-col.items-center .border-y {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section .border-t {
+  border-top: none !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section .border-b {
+  border-bottom: none !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section > svg.absolute,
+#root .relative.w-full.flex.flex-col.items-center > section > svg[class*="absolute"] {
+  display: none !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) > .absolute.bottom-0.left-0.right-0.h-48 {
+  display: none !important;
+}
+
+/* ── HERO SECTION — crystal chandeliers + candles поверх прозрачного фона ── */
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
+  min-height: clamp(620px, 100svh, 860px) !important;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 9px,
+      rgba(255, 248, 220, 0.07) 9px, rgba(255, 248, 220, 0.07) 10px),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 13px,
+      rgba(255, 240, 200, 0.05) 13px, rgba(255, 240, 200, 0.05) 14px),
+    repeating-linear-gradient(180deg,
+      transparent 0px, transparent 22px,
+      rgba(255, 248, 220, 0.03) 22px, rgba(255, 248, 220, 0.03) 24px),
+    radial-gradient(ellipse 5px 9px at 10% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 18% 93%, rgba(255, 185, 95, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 26% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 34% 93%, rgba(255, 185, 95, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 42% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 50% 93%, rgba(255, 185, 95, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 58% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 66% 93%, rgba(255, 185, 95, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 74% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 82% 93%, rgba(255, 185, 95, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 90% 93%, rgba(255, 190, 100, 0.27) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 10% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 26% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 42% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 58% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 74% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 90% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 26% 20% at 50% 100%, rgba(255, 252, 236, 0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 22% 35% at 8% 85%, rgba(200, 140, 60, 0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 22% 35% at 92% 85%, rgba(200, 140, 60, 0.12) 0%, transparent 100%)
+    !important;
+  background-size:
+    10px 100%, 14px 100%, 100% 24px,
+    auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto,
+    auto, auto, auto, auto, auto, auto,
+    auto, auto, auto;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::before,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::after,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(2)::before,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::before,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::before {
+  display: none !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::after {
+  display: none !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) h1 {
+  text-shadow:
+    0 8px 24px rgba(91, 58, 38, 0.10),
+    0 0 40px rgba(220, 170, 80, 0.15);
+}
+
+/* ── SECTION 2 — date/details ── */
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(2) {
+  position: relative;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(2)::before {
+  display: block;
+  position: absolute;
+  inset: -9rem 0;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 9px,
+      rgba(255, 248, 220, 0.035) 9px, rgba(255, 248, 220, 0.035) 10px),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 13px,
+      rgba(255, 240, 200, 0.022) 13px, rgba(255, 240, 200, 0.022) 14px),
+    repeating-linear-gradient(180deg,
+      transparent 0px, transparent 22px,
+      rgba(255, 248, 220, 0.014) 22px, rgba(255, 248, 220, 0.014) 24px);
+  background-size: 10px 100%, 14px 100%, 100% 24px;
+  opacity: 0.62;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+}
+
+/* ── SECTION 3 — venue card ── */
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3) > div > div:first-child {
+  border-color: rgba(184, 134, 58, 0.28) !important;
+  background: rgba(255, 252, 244, 0.88) !important;
+  box-shadow:
+    0 10px 40px rgba(108, 72, 40, 0.08),
+    0 0 0 1px rgba(140, 106, 54, 0.08),
+    inset 0 1px 0 rgba(255, 248, 220, 0.60) !important;
+}
+
+/* ── SECTION 4 — closing area ── */
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) {
+  min-height: clamp(470px, 66vh, 620px) !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::before {
+  inset: auto 0 0 auto;
+  width: min(42vw, 28rem);
+  height: 72%;
+  background: url("/assets/refined/sakura-pagoda-optimized.jpg") center center / cover no-repeat;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 88% 76% at 100% 54%, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.42) 42%, transparent 74%);
+  mask-image: radial-gradient(ellipse 88% 76% at 100% 54%, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.42) 42%, transparent 74%);
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::after {
+  inset: -9rem 0;
+  background:
+    linear-gradient(90deg, rgba(255, 247, 238, 0.76) 0%, rgba(255, 247, 238, 0.66) 56%, rgba(255, 247, 238, 0.48) 100%),
+    radial-gradient(circle at 48% 48%, rgba(255, 255, 255, 0.76), transparent 21rem);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) > div {
+  position: relative;
+  z-index: 2;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p {
+  color: rgba(42, 28, 16, 0.78) !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p.italic {
+  color: #9c6c32 !important;
+  opacity: 1 !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
+  background:
+    radial-gradient(ellipse 5px 9px at 10% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 18% 93%, rgba(255, 185, 95, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 26% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 34% 93%, rgba(255, 185, 95, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 42% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 50% 93%, rgba(255, 185, 95, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 58% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 66% 93%, rgba(255, 185, 95, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 74% 93%, rgba(255, 190, 100, 0.28) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 82% 93%, rgba(255, 185, 95, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 90% 93%, rgba(255, 190, 100, 0.27) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 10% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 26% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 42% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 58% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 74% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 36px at 90% 95%, rgba(200, 130, 40, 0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 26% 20% at 50% 100%, rgba(255, 252, 236, 0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 22% 35% at 8% 85%, rgba(200, 140, 60, 0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 22% 35% at 92% 85%, rgba(200, 140, 60, 0.12) 0%, transparent 100%) !important;
+  background-size: auto !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(2)::before,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::after {
+  display: none !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) > .absolute.top-0.left-0.right-0.h-24,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) > .absolute.bottom-0.left-0.right-0.h-24 {
+  display: none !important;
+}
+
+/* ── SECTION 5 — final ── */
+
+/* ── FORM + FOOTER ── */
+
+#root form input {
+  border-color: rgba(42, 32, 24, 0.2) !important;
+}
+
+#root form button[type="submit"] {
+  box-shadow: 0 10px 22px rgba(140, 106, 54, 0.18);
+}
+
+#root footer {
+  background: transparent !important;
+  border-top: none !important;
+}
+
+/* ── MOBILE ── */
+
+@media (max-width: 767px) {
+  #root .relative.w-full.flex.flex-col.items-center::after {
+    background-image:
+      url("/assets/refined/floral-glow-left.webp"),
+      url("/assets/refined/candles-glow.webp"),
+      url("/assets/refined/floral-glow-right.webp");
+    background-size:
+      68vw auto,
+      36vw auto,
+      62vw auto;
+    background-position:
+      left -8.5rem top 48rem,
+      right -1.5rem top 80rem,
+      right -8rem bottom 22rem;
+    opacity: 0.7;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::before {
+    display: none !important;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::after {
+    display: none !important;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::before {
+    width: 100%;
+    opacity: 0.08;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::after {
+    background: rgba(254, 248, 238, 0.94);
+  }
+
+  #root .pointer-events-none.fixed.inset-0.z-20 {
+    display: none !important;
+  }
+}
+
+/* ── REDUCED MOTION ── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── HERO IMAGE VARIANT ── */
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
+  background:
+    radial-gradient(ellipse 40% 70% at 50% 50%, rgba(255, 246, 233, 0.56) 0%, rgba(238, 219, 192, 0.22) 58%, transparent 76%),
+    linear-gradient(90deg,
+      rgba(255, 236, 222, 0.03) 0%,
+      rgba(166, 96, 58, 0.08) 18%,
+      rgba(80, 52, 34, 0.11) 50%,
+      rgba(166, 96, 58, 0.08) 82%,
+      rgba(255, 236, 222, 0.03) 100%),
+    url("/assets/refined/hero-sakura-frame.png") center center / cover no-repeat !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) h1 {
+  color: #5f432f !important;
+  text-shadow:
+    0 1px 0 rgba(255, 252, 246, 0.88),
+    0 10px 28px rgba(70, 44, 28, 0.22) !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) p,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) span {
+  color: rgba(90, 62, 42, 0.82) !important;
+  text-shadow: 0 1px 0 rgba(255, 252, 246, 0.8);
+}
+
+@media (max-width: 767px) {
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
+    background:
+      radial-gradient(ellipse 56% 62% at 50% 50%, rgba(255, 246, 233, 0.64) 0%, rgba(238, 219, 192, 0.24) 62%, transparent 78%),
+      linear-gradient(90deg,
+        rgba(255, 236, 222, 0.04) 0%,
+        rgba(166, 96, 58, 0.1) 28%,
+        rgba(80, 52, 34, 0.13) 50%,
+        rgba(166, 96, 58, 0.1) 72%,
+        rgba(255, 236, 222, 0.04) 100%),
+      url("/assets/refined/hero-sakura-frame.png") center center / cover no-repeat !important;
+  }
+}
+
+/* ── INTRO MOON SCREEN ── */
+
+#root .fixed.inset-0.z-50 {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(180, 110, 40, 0.12) 0%, transparent 28%),
+    radial-gradient(circle at 50% 38%, rgba(255, 229, 202, 0.1) 0%, transparent 28%),
+    #050506 !important;
+}

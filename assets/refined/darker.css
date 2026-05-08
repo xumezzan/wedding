@@ -1,0 +1,132 @@
+html {
+  background: #dfc9ae;
+}
+
+body {
+  color: #241710 !important;
+  background:
+    radial-gradient(ellipse 42% 100% at 0% 50%, rgba(39, 21, 10, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 42% 100% at 100% 50%, rgba(39, 21, 10, 0.24) 0%, transparent 100%),
+    linear-gradient(180deg, #ead9c1 0%, #dfc8ac 54%, #ecd9bd 100%) !important;
+  background-attachment: fixed !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center {
+  background:
+    radial-gradient(ellipse 78% 22% at 50% 0%, rgba(116, 72, 32, 0.22), transparent 70%),
+    radial-gradient(ellipse 74% 24% at 50% 100%, rgba(87, 50, 24, 0.18), transparent 72%),
+    linear-gradient(180deg, #ead9c1 0%, #dfc8ac 44%, #e9d3b7 100%) !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center::before {
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 9px,
+      rgba(86, 50, 22, 0.038) 9px, rgba(86, 50, 22, 0.038) 10px),
+    repeating-linear-gradient(90deg,
+      transparent 0px, transparent 13px,
+      rgba(255, 239, 207, 0.028) 13px, rgba(255, 239, 207, 0.028) 14px) !important;
+  opacity: 0.82 !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center::after {
+  opacity: 0.58 !important;
+  filter: sepia(0.22) saturate(0.86) contrast(1.06);
+  mix-blend-mode: multiply;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
+  background:
+    radial-gradient(ellipse 5px 9px at 10% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 18% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 26% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 34% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 42% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 50% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 58% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 66% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 74% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 82% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
+    radial-gradient(ellipse 5px 9px at 90% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
+    radial-gradient(ellipse 26% 20% at 50% 100%, rgba(88, 53, 29, 0.18) 0%, transparent 100%),
+    radial-gradient(ellipse 22% 35% at 8% 85%, rgba(88, 51, 26, 0.16) 0%, transparent 100%),
+    radial-gradient(ellipse 22% 35% at 92% 85%, rgba(88, 51, 26, 0.16) 0%, transparent 100%) !important;
+}
+
+#root h1,
+#root h2,
+#root h3,
+#root .font-serif {
+  color: #2b1b12 !important;
+}
+
+#root .text-brand-gold,
+#root .focus\:border-brand-gold:focus,
+#root .hover\:text-brand-gold:hover {
+  color: #765023 !important;
+}
+
+#root .bg-brand-gold,
+#root form button[type="submit"] {
+  background-color: #765023 !important;
+}
+
+#root .border-brand-gold,
+#root .focus\:border-brand-gold:focus {
+  border-color: #765023 !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3) > div > div:first-child {
+  border-color: rgba(94, 58, 26, 0.28) !important;
+  background: rgba(255, 242, 220, 0.74) !important;
+  box-shadow:
+    0 14px 42px rgba(58, 34, 17, 0.13),
+    0 0 0 1px rgba(94, 58, 26, 0.10),
+    inset 0 1px 0 rgba(255, 248, 226, 0.58) !important;
+}
+
+#root input,
+#root label,
+#root p,
+#root span,
+#root button {
+  border-color: rgba(39, 24, 15, 0.24) !important;
+}
+
+#root p,
+#root label,
+#root span {
+  color: rgba(38, 24, 15, 0.72) !important;
+}
+
+#root form input {
+  color: #241710 !important;
+  border-color: rgba(39, 24, 15, 0.28) !important;
+}
+
+#root form input::placeholder {
+  color: rgba(39, 24, 15, 0.36) !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::before {
+  opacity: 0.16 !important;
+  mix-blend-mode: multiply;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p {
+  color: rgba(38, 24, 15, 0.78) !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p.italic {
+  color: #765023 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(118, 80, 35, 0.38) !important;
+}
+
+@media (max-width: 767px) {
+  #root .relative.w-full.flex.flex-col.items-center::after {
+    opacity: 0.5 !important;
+  }
+}
