@@ -466,7 +466,8 @@ body {
         rgba(80, 52, 34, 0.13) 50%,
         rgba(166, 96, 58, 0.1) 72%,
         rgba(255, 236, 222, 0.04) 100%),
-      url("hero-sakura-frame.png") center center / cover no-repeat !important;
+      url("hero-sakura-frame.png") center top / 122vw auto no-repeat,
+      url("hero-sakura-frame.png") center bottom / 122vw auto no-repeat !important;
   }
 
   #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::before,
