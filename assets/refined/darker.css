@@ -1,132 +1,172 @@
 html {
-  background: #dfc9ae;
+  background: #14100e;
 }
 
 body {
-  color: #241710 !important;
+  color: #f3e5d8 !important;
   background:
-    radial-gradient(ellipse 42% 100% at 0% 50%, rgba(39, 21, 10, 0.24) 0%, transparent 100%),
-    radial-gradient(ellipse 42% 100% at 100% 50%, rgba(39, 21, 10, 0.24) 0%, transparent 100%),
-    linear-gradient(180deg, #ead9c1 0%, #dfc8ac 54%, #ecd9bd 100%) !important;
+    radial-gradient(ellipse 80% 54% at 50% 0%, rgba(243, 229, 216, 0.11), transparent 68%),
+    radial-gradient(ellipse 54% 34% at 18% 26%, rgba(201, 169, 142, 0.12), transparent 72%),
+    radial-gradient(ellipse 48% 36% at 86% 78%, rgba(167, 133, 109, 0.12), transparent 72%),
+    linear-gradient(180deg, #14100e 0%, #1c1512 48%, #14100e 100%) !important;
   background-attachment: fixed !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center {
   background:
-    radial-gradient(ellipse 78% 22% at 50% 0%, rgba(116, 72, 32, 0.22), transparent 70%),
-    radial-gradient(ellipse 74% 24% at 50% 100%, rgba(87, 50, 24, 0.18), transparent 72%),
-    linear-gradient(180deg, #ead9c1 0%, #dfc8ac 44%, #e9d3b7 100%) !important;
+    radial-gradient(ellipse 70% 22% at 50% 0%, rgba(243, 229, 216, 0.1), transparent 72%),
+    radial-gradient(ellipse 50% 18% at 50% 100%, rgba(201, 169, 142, 0.08), transparent 74%),
+    linear-gradient(180deg, #14100e 0%, #201813 42%, #15100e 100%) !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center::before {
   background:
     repeating-linear-gradient(90deg,
-      transparent 0px, transparent 9px,
-      rgba(86, 50, 22, 0.038) 9px, rgba(86, 50, 22, 0.038) 10px),
+      transparent 0px, transparent 11px,
+      rgba(243, 229, 216, 0.018) 11px, rgba(243, 229, 216, 0.018) 12px),
     repeating-linear-gradient(90deg,
-      transparent 0px, transparent 13px,
-      rgba(255, 239, 207, 0.028) 13px, rgba(255, 239, 207, 0.028) 14px) !important;
-  opacity: 0.82 !important;
+      transparent 0px, transparent 17px,
+      rgba(201, 169, 142, 0.014) 17px, rgba(201, 169, 142, 0.014) 18px) !important;
+  opacity: 0.62 !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center::after {
-  opacity: 0.58 !important;
-  filter: sepia(0.22) saturate(0.86) contrast(1.06);
-  mix-blend-mode: multiply;
+  opacity: 0.2 !important;
+  filter: sepia(0.55) saturate(0.54) brightness(0.68) contrast(1.02);
+  mix-blend-mode: screen;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
   background:
-    radial-gradient(ellipse 5px 9px at 10% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 18% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 26% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 34% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 42% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 50% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 58% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 66% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 74% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 82% 93%, rgba(157, 86, 36, 0.22) 0%, transparent 100%),
-    radial-gradient(ellipse 5px 9px at 90% 93%, rgba(172, 102, 42, 0.24) 0%, transparent 100%),
-    radial-gradient(ellipse 26% 20% at 50% 100%, rgba(88, 53, 29, 0.18) 0%, transparent 100%),
-    radial-gradient(ellipse 22% 35% at 8% 85%, rgba(88, 51, 26, 0.16) 0%, transparent 100%),
-    radial-gradient(ellipse 22% 35% at 92% 85%, rgba(88, 51, 26, 0.16) 0%, transparent 100%) !important;
+    radial-gradient(ellipse 38% 45% at 50% 45%, rgba(243, 229, 216, 0.13), transparent 72%),
+    radial-gradient(circle at 50% 28%, rgba(226, 205, 187, 0.11), transparent 22rem),
+    radial-gradient(ellipse 70% 28% at 50% 100%, rgba(201, 169, 142, 0.09), transparent 74%),
+    linear-gradient(180deg, #14100e 0%, #211914 56%, #15100e 100%) !important;
+}
+
+#root .fixed.inset-0.z-50 {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(243, 229, 216, 0.14), transparent 31%),
+    radial-gradient(ellipse at 50% 100%, rgba(201, 169, 142, 0.12) 0%, transparent 30%),
+    #14100e !important;
+}
+
+#root .fixed.inset-0.z-50 .relative.group > .relative {
+  filter: sepia(0.24) saturate(0.62) brightness(1.05) contrast(0.96);
+  box-shadow:
+    0 0 32px rgba(243, 229, 216, 0.52),
+    0 0 116px rgba(201, 169, 142, 0.24),
+    inset -22px -24px 46px rgba(0, 0, 0, 0.34),
+    inset 10px 10px 26px rgba(243, 229, 216, 0.26) !important;
 }
 
 #root h1,
 #root h2,
 #root h3,
 #root .font-serif {
-  color: #2b1b12 !important;
+  color: #f3e5d8 !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) h1 {
+  color: #f3e5d8 !important;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12),
+    0 14px 36px rgba(0, 0, 0, 0.48),
+    0 0 42px rgba(243, 229, 216, 0.16) !important;
+}
+
+#root p,
+#root label,
+#root span,
+#root button {
+  color: rgba(243, 229, 216, 0.74) !important;
+  border-color: rgba(226, 205, 187, 0.2) !important;
 }
 
 #root .text-brand-gold,
-#root .focus\:border-brand-gold:focus,
+#root .font-serif.italic,
 #root .hover\:text-brand-gold:hover {
-  color: #765023 !important;
+  color: #c9a98e !important;
 }
 
 #root .bg-brand-gold,
 #root form button[type="submit"] {
-  background-color: #765023 !important;
+  color: #14100e !important;
+  background-color: #c9a98e !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.28),
+    0 0 26px rgba(243, 229, 216, 0.12) !important;
 }
 
 #root .border-brand-gold,
-#root .focus\:border-brand-gold:focus {
-  border-color: #765023 !important;
+#root .focus\:border-brand-gold:focus,
+#root .hover\:border-brand-gold:hover,
+#root .hover\:border-brand-gold\/60:hover {
+  border-color: #c9a98e !important;
+}
+
+#root .bg-\[\#a07840\],
+#root .hover\:bg-\[\#a07840\]:hover {
+  background-color: #a7856d !important;
+}
+
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3) > div > div:first-child,
+#root form,
+#root .border-y,
+#root .border-t,
+#root .border-b {
+  border-color: rgba(226, 205, 187, 0.18) !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3) > div > div:first-child {
-  border-color: rgba(94, 58, 26, 0.28) !important;
-  background: rgba(255, 242, 220, 0.74) !important;
+  background:
+    linear-gradient(180deg, rgba(243, 229, 216, 0.08), rgba(58, 43, 36, 0.2)) !important;
   box-shadow:
-    0 14px 42px rgba(58, 34, 17, 0.13),
-    0 0 0 1px rgba(94, 58, 26, 0.10),
-    inset 0 1px 0 rgba(255, 248, 226, 0.58) !important;
-}
-
-#root input,
-#root label,
-#root p,
-#root span,
-#root button {
-  border-color: rgba(39, 24, 15, 0.24) !important;
-}
-
-#root p,
-#root label,
-#root span {
-  color: rgba(38, 24, 15, 0.72) !important;
+    0 18px 52px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(226, 205, 187, 0.08),
+    inset 0 1px 0 rgba(243, 229, 216, 0.12) !important;
 }
 
 #root form input {
-  color: #241710 !important;
-  border-color: rgba(39, 24, 15, 0.28) !important;
+  color: #f3e5d8 !important;
+  border-color: rgba(226, 205, 187, 0.26) !important;
 }
 
 #root form input::placeholder {
-  color: rgba(39, 24, 15, 0.36) !important;
+  color: rgba(226, 205, 187, 0.38) !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::before {
-  opacity: 0.16 !important;
-  mix-blend-mode: multiply;
+  opacity: 0.08 !important;
+  filter: sepia(0.5) saturate(0.5) brightness(0.62);
+  mix-blend-mode: screen;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p {
-  color: rgba(38, 24, 15, 0.78) !important;
+  color: rgba(243, 229, 216, 0.76) !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p.italic {
-  color: #765023 !important;
+  color: #c9a98e !important;
+}
+
+#root footer {
+  color: rgba(226, 205, 187, 0.56) !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(118, 80, 35, 0.38) !important;
+  background-color: rgba(201, 169, 142, 0.38) !important;
 }
 
 @media (max-width: 767px) {
   #root .relative.w-full.flex.flex-col.items-center::after {
-    opacity: 0.5 !important;
+    opacity: 0.14 !important;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
+    background:
+      radial-gradient(ellipse 66% 42% at 50% 38%, rgba(243, 229, 216, 0.12), transparent 72%),
+      radial-gradient(ellipse 84% 18% at 50% 100%, rgba(201, 169, 142, 0.1), transparent 74%),
+      linear-gradient(180deg, #14100e 0%, #211914 55%, #15100e 100%) !important;
   }
 }
