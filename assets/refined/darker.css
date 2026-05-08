@@ -1,53 +1,47 @@
-html {
-  background: #14100e;
+html,
+body {
+  background: #14100e url("moonlight-full-bg.png") center center / cover fixed no-repeat !important;
 }
 
 body {
   color: #f3e5d8 !important;
-  background:
-    radial-gradient(ellipse 80% 54% at 50% 0%, rgba(243, 229, 216, 0.11), transparent 68%),
-    radial-gradient(ellipse 54% 34% at 18% 26%, rgba(201, 169, 142, 0.12), transparent 72%),
-    radial-gradient(ellipse 48% 36% at 86% 78%, rgba(167, 133, 109, 0.12), transparent 72%),
-    linear-gradient(180deg, #14100e 0%, #1c1512 48%, #14100e 100%) !important;
-  background-attachment: fixed !important;
 }
 
-#root .relative.w-full.flex.flex-col.items-center {
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 22% at 50% 0%, rgba(243, 229, 216, 0.1), transparent 72%),
-    radial-gradient(ellipse 50% 18% at 50% 100%, rgba(201, 169, 142, 0.08), transparent 74%),
-    linear-gradient(180deg, #14100e 0%, #201813 42%, #15100e 100%) !important;
+    radial-gradient(ellipse 70% 42% at 50% 74%, rgba(243, 229, 216, 0.12), transparent 72%),
+    linear-gradient(180deg, rgba(20, 16, 14, 0.2) 0%, rgba(20, 16, 14, 0.04) 48%, rgba(20, 16, 14, 0.22) 100%);
 }
 
-#root .relative.w-full.flex.flex-col.items-center::before {
-  background:
-    repeating-linear-gradient(90deg,
-      transparent 0px, transparent 11px,
-      rgba(243, 229, 216, 0.018) 11px, rgba(243, 229, 216, 0.018) 12px),
-    repeating-linear-gradient(90deg,
-      transparent 0px, transparent 17px,
-      rgba(201, 169, 142, 0.014) 17px, rgba(201, 169, 142, 0.014) 18px) !important;
-  opacity: 0.62 !important;
+#root .relative.w-full.flex.flex-col.items-center,
+#root .relative.w-full.flex.flex-col.items-center > section,
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1),
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(2),
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3),
+#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4),
+#root footer {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
-#root .relative.w-full.flex.flex-col.items-center::after {
-  opacity: 0.2 !important;
-  filter: sepia(0.55) saturate(0.54) brightness(0.68) contrast(1.02);
-  mix-blend-mode: screen;
-}
-
-#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
-  background:
-    radial-gradient(ellipse 38% 45% at 50% 45%, rgba(243, 229, 216, 0.13), transparent 72%),
-    radial-gradient(circle at 50% 28%, rgba(226, 205, 187, 0.11), transparent 22rem),
-    radial-gradient(ellipse 70% 28% at 50% 100%, rgba(201, 169, 142, 0.09), transparent 74%),
-    linear-gradient(180deg, #14100e 0%, #211914 56%, #15100e 100%) !important;
+#root .relative.w-full.flex.flex-col.items-center::before,
+#root .relative.w-full.flex.flex-col.items-center::after,
+#root .relative.w-full.flex.flex-col.items-center > section::before,
+#root .relative.w-full.flex.flex-col.items-center > section::after,
+#root .pointer-events-none.fixed.inset-0.z-20 {
+  display: none !important;
 }
 
 #root .fixed.inset-0.z-50 {
   background:
     radial-gradient(circle at 50% 38%, rgba(243, 229, 216, 0.14), transparent 31%),
-    radial-gradient(ellipse at 50% 100%, rgba(201, 169, 142, 0.12) 0%, transparent 30%),
+    radial-gradient(ellipse at 50% 100%, rgba(201, 169, 142, 0.1) 0%, transparent 30%),
+    url("moonlight-full-bg.png") center center / cover no-repeat,
     #14100e !important;
 }
 
@@ -79,8 +73,8 @@ body {
 #root label,
 #root span,
 #root button {
-  color: rgba(243, 229, 216, 0.74) !important;
-  border-color: rgba(226, 205, 187, 0.2) !important;
+  color: rgba(243, 229, 216, 0.76) !important;
+  border-color: rgba(226, 205, 187, 0.22) !important;
 }
 
 #root .text-brand-gold,
@@ -110,19 +104,19 @@ body {
   background-color: #a7856d !important;
 }
 
-#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3) > div > div:first-child,
-#root form,
 #root .border-y,
 #root .border-t,
-#root .border-b {
+#root .border-b,
+#root form {
   border-color: rgba(226, 205, 187, 0.18) !important;
 }
 
 #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(3) > div > div:first-child {
+  border-color: rgba(226, 205, 187, 0.18) !important;
   background:
-    linear-gradient(180deg, rgba(243, 229, 216, 0.08), rgba(58, 43, 36, 0.2)) !important;
+    linear-gradient(180deg, rgba(243, 229, 216, 0.08), rgba(58, 43, 36, 0.18)) !important;
   box-shadow:
-    0 18px 52px rgba(0, 0, 0, 0.28),
+    0 18px 52px rgba(0, 0, 0, 0.26),
     0 0 0 1px rgba(226, 205, 187, 0.08),
     inset 0 1px 0 rgba(243, 229, 216, 0.12) !important;
 }
@@ -136,20 +130,6 @@ body {
   color: rgba(226, 205, 187, 0.38) !important;
 }
 
-#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4)::before {
-  opacity: 0.08 !important;
-  filter: sepia(0.5) saturate(0.5) brightness(0.62);
-  mix-blend-mode: screen;
-}
-
-#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p {
-  color: rgba(243, 229, 216, 0.76) !important;
-}
-
-#root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(4) p.italic {
-  color: #c9a98e !important;
-}
-
 #root footer {
   color: rgba(226, 205, 187, 0.56) !important;
 }
@@ -159,14 +139,9 @@ body {
 }
 
 @media (max-width: 767px) {
-  #root .relative.w-full.flex.flex-col.items-center::after {
-    opacity: 0.14 !important;
-  }
-
-  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) {
-    background:
-      radial-gradient(ellipse 66% 42% at 50% 38%, rgba(243, 229, 216, 0.12), transparent 72%),
-      radial-gradient(ellipse 84% 18% at 50% 100%, rgba(201, 169, 142, 0.1), transparent 74%),
-      linear-gradient(180deg, #14100e 0%, #211914 55%, #15100e 100%) !important;
+  html,
+  body {
+    background-position: center center !important;
+    background-size: cover !important;
   }
 }
