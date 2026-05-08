@@ -388,8 +388,8 @@ body {
       36vw auto,
       62vw auto;
     background-position:
-      left -8.5rem top 48rem,
-      right -1.5rem top 80rem,
+      left -10rem top 62rem,
+      right -1.5rem top 88rem,
       right -8rem bottom 22rem;
     opacity: 0.7;
   }
@@ -467,6 +467,39 @@ body {
         rgba(166, 96, 58, 0.1) 72%,
         rgba(255, 236, 222, 0.04) 100%),
       url("hero-sakura-frame.png") center center / cover no-repeat !important;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1) > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::before,
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::after {
+    content: "";
+    display: block !important;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    width: 78vw;
+    height: 34vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.48;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::before {
+    top: 4.25rem;
+    left: -8.5rem;
+    background-image: url("floral-glow-left.webp");
+    background-position: left top;
+  }
+
+  #root .relative.w-full.flex.flex-col.items-center > section:nth-of-type(1)::after {
+    right: -8rem;
+    bottom: 3.5rem;
+    background-image: url("floral-glow-right.webp");
+    background-position: right bottom;
   }
 }
 
