@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Азим & Аниса — 11 июня 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6f0;
+    --blush: #f2d8cc;
+    --rose: #d4a4a4;
+    --gold: #c9a96e;
+    --brown: #6b4c3b;
+    --text: #3d2b1f;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Raleway', sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── INTRO SCREEN ─────────────────────────────── */
+  #intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: radial-gradient(ellipse at center, #1a0e0a 0%, #0d0605 60%, #000 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 1.4s ease, visibility 1.4s ease;
+  }
+  #intro.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+  .moon-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .moon {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%,
+      #fff9f0 0%, #f5e6c8 25%, #e8c98a 50%, #c9a96e 72%, #9b7340 100%);
+    box-shadow:
+      0 0 60px 30px rgba(201,169,110,.35),
+      0 0 120px 60px rgba(201,169,110,.18),
+      0 0 200px 100px rgba(201,169,110,.08);
+    animation: moonPulse 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  .moon::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Ccircle cx='80' cy='70' r='18' fill='rgba(0,0,0,.06)'/%3E%3Ccircle cx='140' cy='120' r='12' fill='rgba(0,0,0,.05)'/%3E%3Ccircle cx='100' cy='150' r='22' fill='rgba(0,0,0,.04)'/%3E%3Ccircle cx='60' cy='130' r='10' fill='rgba(0,0,0,.04)'/%3E%3Ccircle cx='160' cy='70' r='8' fill='rgba(0,0,0,.05)'/%3E%3C/svg%3E") center/cover;
+  }
+
+  @keyframes moonPulse {
+    0%,100%{ box-shadow:0 0 60px 30px rgba(201,169,110,.35),0 0 120px 60px rgba(201,169,110,.18); }
+    50%    { box-shadow:0 0 80px 40px rgba(201,169,110,.5), 0 0 160px 80px rgba(201,169,110,.25); }
+  }
+
+  .intro-hint {
+    color: rgba(253,246,240,.55);
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeHint 2s ease-in-out infinite;
+  }
+  @keyframes fadeHint { 0%,100%{opacity:.4} 50%{opacity:.9} }
+
+  /* Stars */
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .star {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--d,3s) ease-in-out infinite var(--del,0s);
+  }
+  @keyframes twinkle { 0%,100%{opacity:.15} 50%{opacity:.85} }
+
+  /* Falling petals on intro */
+  .intro-petal {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 50% 0 50% 0;
+    background: rgba(242,216,204,.18);
+    animation: fallPetal var(--fd,8s) linear infinite var(--fdel,0s);
+    top: -20px;
+    left: var(--fx,50%);
+  }
+  @keyframes fallPetal {
+    0%   { transform: translateY(0) rotate(0deg); opacity:0; }
+    10%  { opacity:.6; }
+    90%  { opacity:.4; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity:0; }
+  }
+
+  /* ─── MAIN CONTENT ─────────────────────────────── */
+  #main {
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 1.2s ease .3s;
+  }
+  #main.visible { opacity: 1; }
+
+  /* Petal canvas */
+  #petalCanvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fdf6f0 0%, #f9ede4 60%, #f5e2d5 100%);
+  }
+
+  /* Hanging flowers top decoration */
+  .hanging-decor {
+    position: absolute;
+    top: 0;
+    left: 0; right: 0;
+    height: 280px;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hang-stem {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(201,169,110,.4), transparent);
+    transform-origin: top center;
+    animation: sway var(--sw, 4s) ease-in-out infinite var(--swdel,0s);
+  }
+  .hang-bloom {
+    position: absolute;
+    border-radius: 50% 0 50% 0;
+    background: var(--bc, rgba(242,216,204,.8));
+    transform: rotate(var(--br,0deg));
+    box-shadow: 0 0 6px rgba(201,169,110,.3);
+  }
+  @keyframes sway {
+    0%,100%{ transform: rotate(-2deg); }
+    50%    { transform: rotate(2deg); }
+  }
+
+  /* Drape lines */
+  .drape {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(201,169,110,.15), rgba(212,164,164,.1), transparent);
+    animation: sway var(--dw,5s) ease-in-out infinite var(--ddel,0s);
+  }
+
+  /* Divider ornament */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px auto;
+    width: fit-content;
+  }
+  .ornament-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
+  .ornament-line.rev { background: linear-gradient(to left, transparent, var(--gold)); }
+  .ornament-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+  /* Typography */
+  .pre-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #b8813a;
+    text-shadow: 0 1px 8px rgba(255,255,255,.6);
+    opacity: 0;
+    animation: fadeUp .8s ease forwards 1s;
+  }
+  .couple-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(52px, 10vw, 88px);
+    line-height: 1;
+    color: var(--brown);
+    letter-spacing: -1px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1.3s;
+  }
+  .couple-amp {
+    font-style: italic;
+    color: var(--rose);
+    font-size: .7em;
+    display: block;
+    line-height: 1.4;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--brown);
+    opacity: .75;
+    max-width: 420px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp .8s ease forwards 1.6s;
+  }
+  .date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid rgba(201,169,110,.45);
+    padding: 14px 32px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brown);
+    background: rgba(253,246,240,.7);
+    backdrop-filter: blur(4px);
+    margin-top: 8px;
+    opacity: 0;
+    animation: fadeUp .8s ease forwards 1.9s;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    padding: 80px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .section-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3vw, 22px);
+    line-height: 1.85;
+    color: var(--brown);
+    font-weight: 300;
+  }
+  .section-body strong {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  /* Event details card */
+  .details-card {
+    background: linear-gradient(135deg, rgba(242,216,204,.3), rgba(253,246,240,.8));
+    border: 1px solid rgba(201,169,110,.3);
+    border-radius: 2px;
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .details-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(201,169,110,.15)'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+  .detail-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+  .detail-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 300;
+    color: var(--brown);
+    line-height: 1.3;
+  }
+
+  /* Quote section */
+  .quote-section {
+    background: linear-gradient(180deg, #f5e2d5 0%, #fdf6f0 100%);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px;
+    line-height: .5;
+    color: rgba(201,169,110,.25);
+    font-style: italic;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(20px, 3.5vw, 26px);
+    line-height: 1.8;
+    color: var(--brown);
+    max-width: 560px;
+    margin: 0 auto 16px;
+  }
+  .quote-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--rose);
+    font-style: italic;
+    margin-top: 12px;
+  }
+
+  /* ─── RSVP ─── */
+  .rsvp-section {
+    background: linear-gradient(135deg, #2a1410, #1a0d09);
+    padding: 80px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .rsvp-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,.12) 0%, transparent 70%);
+  }
+  .rsvp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .rsvp-sub {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .rsvp-note {
+    color: rgba(253,246,240,.6);
+    font-size: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .rsvp-form {
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .form-group { margin-bottom: 20px; text-align: left; }
+  .form-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .form-input, .form-select {
+    width: 100%;
+    background: rgba(253,246,240,.06);
+    border: 1px solid rgba(201,169,110,.25);
+    color: var(--cream);
+    padding: 14px 18px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    border-radius: 1px;
+    transition: border-color .3s;
+    -webkit-appearance: none;
+  }
+  .form-input::placeholder { color: rgba(253,246,240,.3); }
+  .form-input:focus, .form-select:focus { border-color: rgba(201,169,110,.7); background: rgba(253,246,240,.1); }
+  .form-select { cursor: pointer; }
+  .form-select option { background: #2a1410; color: var(--cream); }
+
+  .attend-btns { display: flex; gap: 12px; }
+  .attend-btn {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid rgba(201,169,110,.25);
+    background: transparent;
+    color: rgba(253,246,240,.6);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .3s;
+    border-radius: 1px;
+  }
+  .attend-btn.active, .attend-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,169,110,.08);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--gold), #a8804a);
+    border: none;
+    color: var(--white);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    border-radius: 1px;
+    transition: opacity .3s, transform .2s;
+  }
+  .submit-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+  .success-msg {
+    display: none;
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0d0605;
+    text-align: center;
+    padding: 32px 24px;
+    color: rgba(253,246,240,.3);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  footer .footer-names { color: rgba(253,246,240,.5); }
+
+  /* Floating petal decoration */
+  .sakura-bg {
+    position: absolute;
+    pointer-events: none;
+    font-size: 20px;
+    opacity: .12;
+    animation: floatPetal var(--fp,6s) ease-in-out infinite var(--fpdel,0s);
+  }
+  @keyframes floatPetal {
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%    { transform:translateY(-12px) rotate(8deg); }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.shown { opacity: 1; transform: translateY(0); }
+
+  /* Responsive */
+  @media(max-width:480px) {
+    .details-card { padding: 36px 24px; }
+    .attend-btns { flex-direction: column; }
+    .moon { width: 170px; height: 170px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ INTRO SCREEN ═══ -->
+<div id="intro" onclick="enterSite()">
+  <div class="stars" id="stars"></div>
+
+  <!-- Falling petals on intro -->
+  <div id="introPetals"></div>
+
+  <div class="moon-wrap">
+    <div class="moon"></div>
+    <p class="intro-hint">Нажмите, чтобы открыть</p>
+  </div>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<canvas id="petalCanvas"></canvas>
+<div id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Hanging floral decor (SVG) -->
+    <div class="hanging-decor" id="hangDecor"></div>
+    <!-- Drape lines -->
+    <div id="drapeLines"></div>
+
+    <p class="pre-title">Свадебное приглашение</p>
+
+    <div class="ornament" style="opacity:0;animation:fadeUp .6s ease forwards 1.15s">
+      <div class="ornament-line"></div>
+      <div class="ornament-dot"></div>
+      <div class="ornament-line rev"></div>
+    </div>
+
+    <h1 class="couple-names">
+      Азим
+      <span class="couple-amp">&amp;</span>
+      Аниса
+    </h1>
+
+    <div class="ornament" style="opacity:0;animation:fadeUp .6s ease forwards 1.45s">
+      <div class="ornament-line"></div>
+      <div class="ornament-dot"></div>
+      <div class="ornament-line rev"></div>
+    </div>
+
+    <p class="hero-tagline">
+      В этот особенный день мы хотим,<br>чтобы рядом были самые близкие.
+    </p>
+
+    <div class="date-badge">
+      ✦ &nbsp; 11 июня 2026 &nbsp; ✦
+    </div>
+  </section>
+
+  <!-- INVITATION TEXT -->
+  <section class="section reveal">
+    <p class="section-title">Приглашение</p>
+    <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line rev"></div></div>
+    <p class="section-body">
+      Приглашаем вас на <strong>свадебное торжество</strong>.<br><br>
+      Будем счастливы разделить с вами этот вечер,
+      наполненный любовью и радостью.<br><br>
+      <em style="color:var(--rose)">Ждём вас!</em>
+    </p>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="section reveal" style="padding-top:0;">
+    <div class="details-card">
+      <div class="detail-row">
+        <span class="detail-label">Дата</span>
+        <span class="detail-value">11 июня 2026 года</span>
+      </div>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line rev"></div></div>
+      <div class="detail-row" style="margin-top:24px;">
+        <span class="detail-label">Время</span>
+        <span class="detail-value">18:00</span>
+      </div>
+      <div class="ornament"><div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line rev"></div></div>
+      <div class="detail-row" style="margin-top:24px;margin-bottom:0;">
+        <span class="detail-label">Место</span>
+        <span class="detail-value" style="font-size:clamp(20px,3.5vw,26px);">VERSAL RESTAURANT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILIES -->
+  <section class="section reveal" style="padding-top:0;">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--rose);letter-spacing:1px;">
+      С уважением,
+    </p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,22px);color:var(--brown);font-weight:300;margin-top:8px;line-height:1.8;">
+      Семья Шокировых и Обидовых
+    </p>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-section reveal">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">
+      Любовь — это не просто слова,<br>
+      это мгновения, которые становятся вечностью.
+    </p>
+    <p class="quote-sub">
+      И в этот день мы создадим свою историю…<br>вместе с вами.
+    </p>
+    <div class="ornament" style="margin-top:32px;justify-content:center;">
+      <div class="ornament-line"></div><div class="ornament-dot"></div><div class="ornament-line rev"></div>
+    </div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="rsvp-section">
+    <h2 class="rsvp-title reveal">Подтверждение</h2>
+    <p class="rsvp-sub reveal">RSVP</p>
+    <p class="rsvp-note reveal">
+      Нам очень важно знать, сможете ли вы быть с нами в этот день 🤍<br>
+      Пожалуйста, заполните форму ниже.
+    </p>
+
+    <form class="rsvp-form reveal" id="rsvpForm">
+      <div class="form-group">
+        <label class="form-label">Ваше имя</label>
+        <input class="form-input" type="text" placeholder="Введите ваше имя" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Вы придёте?</label>
+        <div class="attend-btns">
+          <button type="button" class="attend-btn active" id="btnYes" onclick="setAttend('yes')">Да, с радостью ✓</button>
+          <button type="button" class="attend-btn" id="btnNo" onclick="setAttend('no')">К сожалению, нет</button>
+        </div>
+        <input type="hidden" id="attendVal" value="yes">
+      </div>
+
+      <div class="form-group" id="guestCountGroup">
+        <label class="form-label">Количество гостей</label>
+        <select class="form-select form-input">
+          <option value="1">1 человек</option>
+          <option value="2">2 человека</option>
+          <option value="3">3 человека</option>
+          <option value="4">4 человека</option>
+          <option value="5+">5 и более</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Контактный телефон</label>
+        <input class="form-input" type="tel" placeholder="+998 __ ___ __ __">
+      </div>
+
+      <button type="submit" class="submit-btn">Подтвердить присутствие</button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      🌸 &nbsp; Спасибо! Мы с нетерпением ждём встречи с вами. &nbsp; 🌸
+    </div>
+  </div>
+
+  <footer>
+    Азим &amp; Аниса · 11 июня 2026 · с любовью
+  </footer>
+</div>
+
+<script>
+// ── Stars ──────────────────────────────────────────
+(function(){
+  const c = document.getElementById('stars');
+  for(let i=0;i<120;i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--del:${Math.random()*4}s;opacity:${.1+Math.random()*.7}`;
+    c.appendChild(s);
+  }
+})();
+
+// ── Intro petals ───────────────────────────────────
+(function(){
+  const c = document.getElementById('introPetals');
+  for(let i=0;i<18;i++){
+    const p = document.createElement('div');
+    p.className = 'intro-petal';
+    p.style.cssText=`--fx:${Math.random()*100}%;--fd:${6+Math.random()*8}s;--fdel:${Math.random()*6}s;transform:rotate(${Math.random()*360}deg);`;
+    c.appendChild(p);
+  }
+})();
+
+// ── Enter site ─────────────────────────────────────
+function enterSite(){
+  document.getElementById('intro').classList.add('hidden');
+  const m = document.getElementById('main');
+  m.classList.add('visible');
+  startPetals();
+}
+
+// ── Hanging decor ──────────────────────────────────
+(function(){
+  const d = document.getElementById('hangDecor');
+  const colors=['rgba(242,216,204,.85)','rgba(253,246,240,.9)','rgba(212,164,164,.7)','rgba(245,226,213,.8)'];
+  for(let i=0;i<40;i++){
+    const stem=document.createElement('div');
+    const h=60+Math.random()*180;
+    const l=Math.random()*100;
+    stem.className='hang-stem';
+    stem.style.cssText=`left:${l}%;height:${h}px;--sw:${3+Math.random()*3}s;--swdel:${Math.random()*3}s;`;
+
+    const blooms=[...Array(Math.floor(2+Math.random()*4))].map(()=>{
+      const b=document.createElement('div');
+      const sz=6+Math.random()*14;
+      b.className='hang-bloom';
+      b.style.cssText=`width:${sz}px;height:${sz}px;bottom:${Math.random()*40}px;left:${-sz/2+Math.random()*6-3}px;--bc:${colors[Math.floor(Math.random()*colors.length)]};--br:${Math.random()*360}deg;`;
+      return b;
+    });
+    blooms.forEach(b=>stem.appendChild(b));
+    d.appendChild(stem);
+  }
+})();
+
+// ── Drape lines ────────────────────────────────────
+(function(){
+  const d = document.getElementById('drapeLines');
+  for(let i=0;i<30;i++){
+    const dr=document.createElement('div');
+    dr.className='drape';
+    dr.style.cssText=`left:${Math.random()*100}%;--dw:${4+Math.random()*4}s;--ddel:${Math.random()*4}s;`;
+    d.appendChild(dr);
+  }
+})();
+
+// ── Canvas petals ──────────────────────────────────
+function startPetals(){
+  const canvas=document.getElementById('petalCanvas');
+  const ctx=canvas.getContext('2d');
+  let W=canvas.width=window.innerWidth, H=canvas.height=window.innerHeight;
+  window.addEventListener('resize',()=>{ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; });
+
+  const petals=[];
+  for(let i=0;i<40;i++) petals.push(newPetal(true));
+
+  function newPetal(init=false){
+    return{
+      x: Math.random()*W,
+      y: init ? Math.random()*H : -20,
+      r: 5+Math.random()*8,
+      rot: Math.random()*Math.PI*2,
+      rotV: (Math.random()-.5)*.04,
+      vx: (Math.random()-.5)*1.2,
+      vy: .5+Math.random()*1.2,
+      alpha: .3+Math.random()*.5,
+      hue: Math.random()<.5 ? 0 : 340,
+      sat: 50+Math.random()*30,
+    };
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    petals.forEach(p=>{
+      ctx.save();
+      ctx.translate(p.x,p.y);
+      ctx.rotate(p.rot);
+      ctx.beginPath();
+      ctx.ellipse(0,0,p.r,p.r*.6,0,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${p.hue},${p.sat}%,87%,${p.alpha})`;
+      ctx.fill();
+      ctx.restore();
+
+      p.x+=p.vx+Math.sin(Date.now()*.001+p.y*.02)*.5;
+      p.y+=p.vy;
+      p.rot+=p.rotV;
+
+      if(p.y>H+20){ Object.assign(p,newPetal()); p.y=-20; }
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ── Scroll reveal ──────────────────────────────────
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('shown'); });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ── RSVP attend toggle ─────────────────────────────
+function setAttend(v){
+  document.getElementById('attendVal').value=v;
+  document.getElementById('btnYes').classList.toggle('active',v==='yes');
+  document.getElementById('btnNo').classList.toggle('active',v==='no');
+  document.getElementById('guestCountGroup').style.display=v==='yes'?'block':'none';
+}
+
+// ── RSVP submit ────────────────────────────────────
+document.getElementById('rsvpForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const form = this;
+  const btn = form.querySelector('.submit-btn');
+  btn.textContent = 'Отправка...';
+  btn.disabled = true;
+
+  const data = {
+    name:    form.querySelector('input[type="text"]').value,
+    attend:  document.getElementById('attendVal').value === 'yes' ? 'Да' : 'Нет',
+    guests:  document.getElementById('attendVal').value === 'yes'
+               ? form.querySelector('select').value
+               : '—',
+    phone:   form.querySelector('input[type="tel"]').value
+  };
+
+  fetch('https://script.google.com/macros/s/AKfycbyM_RQvFnK9TTVnNXpG0QuSqtt41zouIsJNguffo4iuPf0JQHnCbe_7nE3VlcoK0c0q/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(() => {
+    form.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }).catch(() => {
+    btn.textContent = 'Подтвердить присутствие';
+    btn.disabled = false;
+    alert('Ошибка отправки. Попробуйте ещё раз.');
+  });
+});
+</script>
+</body>
+</html>
